@@ -22,10 +22,10 @@ if "recipes" not in st.session_state:
     st.session_state.recipes = load_recipes()
 
 # --- Title ---
-st.title("🧑‍🍳 Smart Grocery List Generator")
+st.title("Marshall's Grocery List Generator")
 
 # --- Add Recipes ---
-st.header("📘 Add a Recipe")
+st.header("Add a Recipe")
 recipe_name = st.text_input("Recipe Name")
 ingredients_input = st.text_area("Ingredients (comma-separated)", placeholder="e.g., eggs, flour, sugar")
 
@@ -39,12 +39,12 @@ if st.button("Add Recipe"):
         st.warning("Please provide both a name and ingredients.")
 
 # --- Pantry Items ---
-st.header("🧺 What Do You Already Have?")
+st.header("What Do You Already Have?")
 pantry_input = st.text_area("Pantry Items (comma-separated)", placeholder="e.g., eggs, milk")
 pantry = [i.strip().lower() for i in pantry_input.split(",") if i.strip()]
 
 # --- Select Recipes to Cook ---
-st.header("🍽️ What Do You Want to Make?")
+st.header("What Do You Want to Make?")
 selected_recipes = st.multiselect("Select Recipes", list(st.session_state.recipes.keys()))
 
 # --- Grocery List Output ---
